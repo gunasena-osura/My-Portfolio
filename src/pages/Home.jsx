@@ -27,11 +27,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <img
-        src="/images/home-bg.jpg"
-        alt="Background"
-        className="absolute top-0 left-0 w-full h-full object-cover"
-      />
+        <img src={process.env.PUBLIC_URL + "/images/home-bg.JPG"} />
 
       {/* Dark overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>

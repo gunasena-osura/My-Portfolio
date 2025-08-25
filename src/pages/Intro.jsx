@@ -14,7 +14,7 @@ export default function Intro() {
         muted
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/videos/background.mp4" type="video/mp4" />
+        <source src={process.env.PUBLIC_URL + "/videos/background.mp4"} type="video/mp4" />
       </video>
 
       {/* Dark overlay */}

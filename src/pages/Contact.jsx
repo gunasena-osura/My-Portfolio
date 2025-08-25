@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
  * - Glass cards, mail/phone/LinkedIn links, map link
  */
 
-const PROFILE_IMG = "/images/profile.jpg"; // <-- put your photo here
+const PROFILE_IMG = process.env.PUBLIC_URL + "/images/profile.jpg";
 
 export default function ContactPage() {
   const cards = [
