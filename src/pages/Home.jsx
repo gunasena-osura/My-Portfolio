@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
+  const BG = process.env.PUBLIC_URL + "/images/home-bg.jpg"; // ✅ correct path
 
   const cards = [
     {
       title: "Projects / プロジェクト",
-      description:
-        "Latest work across web, data, and systems. / Web・データ・システムの最新実績。",
+      description: "Latest work across web, data, and systems. / Web・データ・システムの最新実績。",
       link: "/projects",
     },
     {
@@ -26,14 +26,17 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-        <img src={process.env.PUBLIC_URL + "/images/home-bg.JPG"} />
-
+      {/* Background image */}
+      <img
+        src={BG}
+        alt="Background"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
       {/* Dark overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
 
-      {/* Page Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center text-white">
+      {/* Page content */}
+      <div className="relative z-10 text-center text-white px-4">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,21 +46,11 @@ export default function Home() {
           Hello, I&apos;m Osura / こんにちは、オスラです
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg text-gray-200 mb-8"
-        >
+        <p className="text-lg text-gray-200 mb-8">
           Full-Stack Developer — Python, Java, React, C# / フルスタック開発者
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mx-auto">
           {cards.map((c) => (
             <motion.div
               key={c.title}
@@ -69,7 +62,7 @@ export default function Home() {
               <p className="text-gray-300">{c.description}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
